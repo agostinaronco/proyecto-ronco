@@ -2,7 +2,8 @@ import React from "react";
 import "./App.css";
 import Navegacion from "./components/NavBar";
 import Home from "./components/Home";
-import Counter from "./components/counter/Counter";
+
+import ItemList from "./components/itemList/ItemList";
 
 function App() {
   return (
@@ -11,8 +12,12 @@ function App() {
         <Navegacion />
       </header>
       <section>
-        <Home greeting="Bienvenidos" />
-        <Counter initial={1} min={1} max={5} />
+        <div className="container">
+          <Home greeting="Bienvenidos" />
+          <div className="row">
+            <ItemList />
+          </div>
+        </div>
       </section>
     </div>
   );

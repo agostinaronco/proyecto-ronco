@@ -23,7 +23,7 @@ const Navegacion = (props) => {
   return (
     <div>
       <Navbar expand="md">
-        <NavbarBrand href="/">Proyecto</NavbarBrand>
+        <NavbarBrand href="/">E-commerce</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="ml-auto" navbar>
