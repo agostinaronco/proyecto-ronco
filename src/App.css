@@ -45,6 +45,12 @@ section h5 {
   text-transform: uppercase;
   width: 100%;
 }
+.loading {
+  text-transform: uppercase;
+  color: #10aa9c;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
 
 /*btn*/
 .itemDetail .btn-secondary {

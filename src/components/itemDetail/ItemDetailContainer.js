@@ -22,7 +22,7 @@ const ItemDetailContainer = () => {
   if (loading) {
     return (
       <div>
-        <h5>Loading</h5>
+        <p className="loading">Loading</p>
       </div>
     );
   }
