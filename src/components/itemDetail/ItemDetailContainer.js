@@ -22,7 +22,7 @@ const ItemDetailContainer = () => {
   if (loading) {
     return (
       <div>
-        <img src={require("../../assets/images/91.gif")} />
+        <img src={require("./../../assets/images/91.gif")} />
       </div>
     );
   }
