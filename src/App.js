@@ -4,6 +4,7 @@ import Navegacion from "./components/NavBar";
 import Home from "./components/Home";
 
 import ItemList from "./components/itemList/ItemList";
+import ItemDetailContainer from "./components/itemDetail/ItemDetailContainer";
 
 function App() {
   return (
@@ -13,7 +14,20 @@ function App() {
       </header>
       <section>
         <div className="container">
-          <Home greeting="Bienvenidos" />
+          <div className="row text-center">
+            <Home greeting="Bienvenidos" />
+          </div>
+        </div>
+      </section>
+      <section>
+        <h5>ITEM DETAIL</h5>
+        <div className="container">
+          <ItemDetailContainer />
+        </div>
+      </section>
+      <section>
+        <h5>ITEM LIST</h5>
+        <div className="container">
           <div className="row">
             <ItemList />
           </div>

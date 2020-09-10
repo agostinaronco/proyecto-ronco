@@ -92,3 +92,5 @@ ESTADOS: PENDING => FULLFILLED || REJECTED
 /*MAP
 Metodo de un array. me permite recibir una funcion que me permite ransformar los datos de mi array
 
+/*API
+

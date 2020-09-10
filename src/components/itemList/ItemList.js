@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Item from "./Item";
-import Counter from "./../counter/Counter";
 
 const ItemList = () => {
   const [productos, setProductos] = useState([]);
@@ -12,10 +11,10 @@ const ItemList = () => {
         { id: 2, nombre: "producto 2", valor: "$350" },
         { id: 3, nombre: "producto 3", valor: "$350" },
         { id: 4, nombre: "producto 4", valor: "$350" },
-        { id: 5, nombre: "producto 5", valor: "$350" },
+        /*{ id: 5, nombre: "producto 5", valor: "$350" },
         { id: 6, nombre: "producto 6", valor: "$350" },
         { id: 7, nombre: "producto 7", valor: "$350" },
-        { id: 8, nombre: "producto 9", valor: "$350" },
+        { id: 8, nombre: "producto 9", valor: "$350" },*/
       ];
       resolve(resultado);
     }, 2000);
@@ -40,7 +39,6 @@ const ItemList = () => {
           nombre={producto.nombre}
           valor={producto.valor}
         />
-        <Counter initial={1} min={1} max={5} />
       </div>
     </div>
   ));
