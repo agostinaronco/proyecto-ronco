@@ -7,10 +7,11 @@ const ItemDetail = (props) => {
   return (
     <div className="row itemDetail">
       <div className="col-12 col-md-6">
-        <img src={item.secure_thumbnail} />
+        <img src={item.image} className="img-fluid" />
       </div>
       <div className="col-12 col-md-6">
         <p>{item.title}</p>
+        <p>{item.description}</p>
         <h4>${item.price}</h4>
         <Counter initial={0} min={0} max={item.available_quantity} />
         <Button

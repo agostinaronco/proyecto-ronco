@@ -3,41 +3,39 @@ import Item from "./Item";
 
 const ItemList = () => {
   const [productos, setProductos] = useState([]);
-
-  const getProductos = new Promise((resolve, reject) => {
-    setTimeout(() => {
-      const resultado = [
-        { id: 1, nombre: "producto 1", valor: "$350" },
-        { id: 2, nombre: "producto 2", valor: "$350" },
-        { id: 3, nombre: "producto 3", valor: "$350" },
-        { id: 4, nombre: "producto 4", valor: "$350" },
-        /*{ id: 5, nombre: "producto 5", valor: "$350" },
-        { id: 6, nombre: "producto 6", valor: "$350" },
-        { id: 7, nombre: "producto 7", valor: "$350" },
-        { id: 8, nombre: "producto 9", valor: "$350" },*/
-      ];
-      resolve(resultado);
-    }, 2000);
-  });
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    getProductos
-      .then((result) => {
-        setProductos(result);
-        //throw new Error();
-      })
-      .catch((err) => {
-        console.log("Hubo un problema:", err);
-      });
+    setLoading(true);
+    setTimeout(() => {
+      fetch("https://fakestoreapi.com/products")
+        .then((response) => {
+          return response.json();
+        })
+        .then((res) => {
+          setProductos(res);
+          setLoading(false);
+        });
+    }, 2000);
   }, []);
+
+  if (loading) {
+    return (
+      <div>
+        <p className="loading">Loading</p>
+      </div>
+    );
+  }
 
   return productos.map((producto) => (
     <div className="col-12 col-md-6 col-lg-4 ">
       <div className="itemListWrapper">
         <Item
           key={producto.id}
-          nombre={producto.nombre}
-          valor={producto.valor}
+          nombre={producto.title}
+          valor={producto.price}
+          image={producto.image}
+          productId={producto.id}
         />
       </div>
     </div>

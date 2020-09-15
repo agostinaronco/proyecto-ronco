@@ -89,8 +89,14 @@ ESTADOS: PENDING => FULLFILLED || REJECTED
 
     se ejecuta la promesa y si deuelve un error directamente pasa al "error"
 
-/*MAP
+/\*MAP
 Metodo de un array. me permite recibir una funcion que me permite ransformar los datos de mi array
 
-/*API
+/\*API
 
+/\*Routing y navegacion
+
+productos/:id --> los : indican q es una url param dinamico
+
+template literal `${}`
+para insertar cont js dentro de un string

@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from "react";
 import ItemDetail from "./ItemDetail";
+import { useParams } from "react-router-dom";
 
 const ItemDetailContainer = () => {
   const [detalleProducto, setdetalleProducto] = useState([]);
   const [loading, setLoading] = useState(false);
 
+  let { id } = useParams();
+
   useEffect(() => {
     setLoading(true);
     setTimeout(() => {
-      fetch("https://api.mercadolibre.com/items/MLA841413632")
+      fetch(`https://fakestoreapi.com/products/${id}`)
         .then((response) => {
           return response.json();
         })
@@ -16,8 +19,8 @@ const ItemDetailContainer = () => {
           setdetalleProducto(res);
           setLoading(false);
         });
-    }, 3000);
-  }, []);
+    }, 1000);
+  }, [id]);
 
   if (loading) {
     return (
