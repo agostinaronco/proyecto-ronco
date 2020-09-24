@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import Counter from "./../counter/Counter";
 import { Button } from "reactstrap";
 
 const ItemDetail = (props) => {
   const item = props.item;
+
+  const [valueCounter, setValueCounter] = useState(0);
+
   return (
     <div className="row itemDetail">
       <div className="col-12 col-md-6">
@@ -13,12 +16,18 @@ const ItemDetail = (props) => {
         <p>{item.title}</p>
         <p>{item.description}</p>
         <h4>${item.price}</h4>
-        <Counter initial={0} min={0} max={item.available_quantity} />
+        <Counter
+          setValueCounter={setValueCounter}
+          initial={0}
+          min={0}
+          max={5}
+          valueCounter={valueCounter}
+        />
         <Button
           className="btn-block btn-secondary"
           onClick={() => console.log("comprar")}
         >
-          Comprar
+          Comprar {valueCounter != 0 ? valueCounter : null}
         </Button>
       </div>
     </div>
