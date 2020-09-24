@@ -3,21 +3,37 @@ import CounterButton from "./CounterButton";
 
 const Counter = (props) => {
   const increase = () => {
-    const counter = props.valueCounter + 1;
-    if (props.valueCounter >= props.max) return;
-    props.setValueCounter(counter);
+    const counter = props.valueCounter;
+    if (props.valueCounter >= props.max) {
+      alert("No hay mas de " + props.max + " unidades disponibles");
+      return;
+    }
+    props.setValueCounter(counter + 1);
   };
 
   const decrease = () => {
-    const counter = props.valueCounter - 1;
+    const counter = props.valueCounter;
     if (props.valueCounter <= props.min) return;
-    props.setValueCounter(counter);
+    props.setValueCounter(counter - 1);
+  };
+
+  const inputChange = (value) => {
+    if (value <= props.max) {
+      props.setValueCounter(value);
+    } else {
+      alert("No hay mas de " + props.max + " unidades disponibles");
+    }
   };
 
   return (
     <div className="counter">
       <CounterButton action={decrease} titleBtn="-" />
-      <input value={props.valueCounter} />
+      <input
+        value={props.valueCounter}
+        onChange={(e) => {
+          inputChange(Number(e.target.value));
+        }}
+      />
       <CounterButton action={increase} titleBtn="+" />
     </div>
   );
