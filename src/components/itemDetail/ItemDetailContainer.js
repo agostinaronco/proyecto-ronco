@@ -1,10 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import ItemDetail from "./ItemDetail";
 import { useParams } from "react-router-dom";
+import { CartContext } from "./../../context/cartContext";
 
 const ItemDetailContainer = () => {
   const [detalleProducto, setdetalleProducto] = useState([]);
   const [loading, setLoading] = useState(false);
+
+  const [valueCounter, setValueCounter] = useState(0);
+
+  const [cart, setCart] = useContext(CartContext);
 
   let { id } = useParams();
 
@@ -19,7 +24,7 @@ const ItemDetailContainer = () => {
           setdetalleProducto(res);
           setLoading(false);
         });
-    }, 1000);
+    }, 1);
   }, [id]);
 
   if (loading) {
@@ -30,7 +35,13 @@ const ItemDetailContainer = () => {
     );
   }
 
-  return <ItemDetail item={detalleProducto} />;
+  return (
+    <ItemDetail
+      item={detalleProducto}
+      valueCounter={valueCounter}
+      setValueCounter={setValueCounter}
+    />
+  );
 };
 
 export default ItemDetailContainer;

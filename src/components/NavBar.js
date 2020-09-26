@@ -14,6 +14,7 @@ import {
   NavbarText,
 } from "reactstrap";
 import CartIcon from "./CartIcon";
+import { CartProvider } from "./../context/cartContext";
 
 const Navegacion = (props) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -42,9 +43,11 @@ const Navegacion = (props) => {
               <NavLink href="/components/">Contacto</NavLink>
             </NavItem>
           </Nav>
-          <NavbarText>
-            <CartIcon />
-          </NavbarText>
+          <CartProvider>
+            <NavbarText>
+              <CartIcon />
+            </NavbarText>
+          </CartProvider>
         </Collapse>
       </Navbar>
     </div>

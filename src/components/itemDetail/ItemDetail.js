@@ -2,11 +2,7 @@ import React, { useState } from "react";
 import Counter from "./../counter/Counter";
 import { Button } from "reactstrap";
 
-const ItemDetail = (props) => {
-  const item = props.item;
-
-  const [valueCounter, setValueCounter] = useState(0);
-
+const ItemDetail = ({ setValueCounter, item, valueCounter }) => {
   return (
     <div className="row itemDetail">
       <div className="col-12 col-md-6">

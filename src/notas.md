@@ -101,7 +101,7 @@ productos/:id --> los : indican q es una url param dinamico
 template literal `${}`
 para insertar cont js dentro de un string
 
-/* CONTEXTO
+/\* CONTEXTO
 variable global
 useContext
 const CrearContexto = Reat.createContext()
@@ -114,4 +114,6 @@ useContext se cosume el contexto
 const UsarContexto=useContext(CrearContexto);
 nos devuelve el valor del value
 
-<CrearContexto.Consumer></crearContecto.Consumer>  ????
+<CrearContexto.Consumer></crearContecto.Consumer>
+
+/\*Renderizado condicional

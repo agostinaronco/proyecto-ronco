@@ -8,6 +8,8 @@ import ItemList from "./components/itemList/ItemList";
 import ItemDetailContainer from "./components/itemDetail/ItemDetailContainer";
 import Cart from "./components/cart/Cart";
 
+import { CartProvider } from "./context/cartContext";
+
 function App() {
   return (
     <div className="App">
@@ -33,22 +35,24 @@ function App() {
               </div>
             </section>
           </Route>
-          <Route path="/detail/:id">
-            <section>
-              <h5>ITEM DETAIL</h5>
-              <div className="container">
-                <ItemDetailContainer />
-              </div>
-            </section>
-          </Route>
-          <Route path="/cart">
-            <section>
-              <h5>CART</h5>
-              <div className="container">
-                <Cart />
-              </div>
-            </section>
-          </Route>
+          <CartProvider>
+            <Route path="/detail/:id">
+              <section>
+                <h5>ITEM DETAIL</h5>
+                <div className="container">
+                  <ItemDetailContainer />
+                </div>
+              </section>
+            </Route>
+            <Route path="/cart">
+              <section>
+                <h5>CART</h5>
+                <div className="container">
+                  <Cart />
+                </div>
+              </section>
+            </Route>
+          </CartProvider>
         </Switch>
       </BrowserRouter>
     </div>
