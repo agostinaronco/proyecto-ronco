@@ -4,7 +4,7 @@ export const CartContext = React.createContext();
 
 export const CartProvider = (props) => {
   const [cart, setCart] = useState([]);
-  console.log(cart);
+
   useEffect(() => {
     console.log("cart reset");
   }, [cart]);
