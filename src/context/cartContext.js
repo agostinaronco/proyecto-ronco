@@ -6,7 +6,12 @@ export const CartProvider = (props) => {
   const [cart, setCart] = useState([]);
 
   useEffect(() => {
-    console.log("cart reset");
+    var myCart = localStorage.getItem("myCart");
+    setCart(JSON.parse(myCart));
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("myCart", JSON.stringify(cart));
   }, [cart]);
 
   return (
