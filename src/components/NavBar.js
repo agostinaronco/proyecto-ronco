@@ -6,11 +6,11 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink,
   NavbarText,
 } from "reactstrap";
 import CartIcon from "./CartIcon";
 import { CartProvider } from "./../context/cartContext";
+import { NavLink, Link } from "react-router-dom";
 
 const Navegacion = (props) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,15 +20,15 @@ const Navegacion = (props) => {
   return (
     <div>
       <Navbar expand="md">
-        <NavbarBrand href="/">E-commerce</NavbarBrand>
+        <NavLink to="/">E-commerce</NavLink>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="ml-auto" navbar>
             <NavItem>
-              <NavLink href="/">Productos</NavLink>
+              <NavLink to="/">Productos</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/components/">Contacto</NavLink>
+              <NavLink to="/components/">Contacto</NavLink>
             </NavItem>
           </Nav>
           <NavbarText>

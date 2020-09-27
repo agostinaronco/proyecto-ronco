@@ -7,7 +7,7 @@ const CartList = ({ data }) => {
         <li>
           <p>{data.count}</p>
           <p>{data.title}</p>
-          <h4>${data.price}</h4>
+          <h4>${data.price * data.count}</h4>
         </li>
       ))}
     </ul>

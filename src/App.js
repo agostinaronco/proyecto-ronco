@@ -11,6 +11,7 @@ import Cart from "./components/cart/Cart";
 import { CartProvider } from "./context/cartContext";
 
 function App() {
+  console.log("loading app");
   return (
     <div className="App">
       <CartProvider>
