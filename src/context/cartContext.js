@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 export const CartContext = React.createContext();
 
 export const CartProvider = (props) => {
   const [cart, setCart] = useState([]);
-
-  /*const SetCartValue = (value) => {
-    setCart(value);
-  };*/
+  console.log(cart);
+  useEffect(() => {
+    console.log("cart reset");
+  }, [cart]);
 
   return (
     <CartContext.Provider value={[cart, setCart]}>

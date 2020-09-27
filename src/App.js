@@ -13,29 +13,29 @@ import { CartProvider } from "./context/cartContext";
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-        <header className="App-header">
-          <Navegacion />
-        </header>
-        <Switch>
-          <Route exact path="/">
-            <section>
-              <div className="container">
-                <div className="row text-center">
-                  <Home greeting="Bienvenidos" />
+      <CartProvider>
+        <BrowserRouter>
+          <header className="App-header">
+            <Navegacion />
+          </header>
+          <Switch>
+            <Route exact path="/">
+              <section>
+                <div className="container">
+                  <div className="row text-center">
+                    <Home greeting="Bienvenidos" />
+                  </div>
                 </div>
-              </div>
-            </section>
-            <section>
-              <h5>ITEM LIST</h5>
-              <div className="container">
-                <div className="row">
-                  <ItemList />
+              </section>
+              <section>
+                <h5>ITEM LIST</h5>
+                <div className="container">
+                  <div className="row">
+                    <ItemList />
+                  </div>
                 </div>
-              </div>
-            </section>
-          </Route>
-          <CartProvider>
+              </section>
+            </Route>
             <Route path="/detail/:id">
               <section>
                 <h5>ITEM DETAIL</h5>
@@ -52,9 +52,9 @@ function App() {
                 </div>
               </section>
             </Route>
-          </CartProvider>
-        </Switch>
-      </BrowserRouter>
+          </Switch>
+        </BrowserRouter>
+      </CartProvider>
     </div>
   );
 }

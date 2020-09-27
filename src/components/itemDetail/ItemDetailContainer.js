@@ -11,6 +11,17 @@ const ItemDetailContainer = () => {
 
   const [cart, setCart] = useContext(CartContext);
 
+  const SetCartValue = (value, itemsCounter) => {
+    // opcion 1
+    // const cartValue = [...cart]
+    // cartValue.push(value)
+    // opcion 2
+    // const cartValue = [...cart,value]; dos formas de agregar un elemento a un array
+    const cartValue = [...cart, value];
+    setCart(cartValue);
+    console.log(itemsCounter);
+  };
+
   let { id } = useParams();
 
   useEffect(() => {
@@ -40,6 +51,7 @@ const ItemDetailContainer = () => {
       item={detalleProducto}
       valueCounter={valueCounter}
       setValueCounter={setValueCounter}
+      setCartValue={SetCartValue}
     />
   );
 };

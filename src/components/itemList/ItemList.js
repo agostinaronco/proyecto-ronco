@@ -16,7 +16,7 @@ const ItemList = () => {
           setProductos(res);
           setLoading(false);
         });
-    }, 2000);
+    }, 1);
   }, []);
 
   if (loading) {

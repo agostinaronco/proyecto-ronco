@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { CartContext } from "./../context/cartContext";
 
 const CartIcon = () => {
+  const [cart] = useContext(CartContext);
+
   return (
     <Link to="/cart">
-      <img className="icon" src={require("../assets/images/carro.svg")} />
+      <div className="cartIconWrapper">
+        <img className="icon" src={require("../assets/images/carro.svg")} />
+        <p className="cartUnits">{cart.length}</p>
+      </div>
     </Link>
   );
 };

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Counter from "./../counter/Counter";
 import { Button } from "reactstrap";
 
-const ItemDetail = ({ setValueCounter, item, valueCounter }) => {
+const ItemDetail = ({ setValueCounter, item, valueCounter, setCartValue }) => {
   return (
     <div className="row itemDetail">
       <div className="col-12 col-md-6">
@@ -21,7 +21,10 @@ const ItemDetail = ({ setValueCounter, item, valueCounter }) => {
         />
         <Button
           className="btn-block btn-secondary"
-          onClick={() => console.log("comprar")}
+          onClick={() => {
+            setCartValue(item, valueCounter);
+          }}
+          disabled={!valueCounter ? true : false}
         >
           Comprar {valueCounter != 0 ? valueCounter : null}
         </Button>
