@@ -9,7 +9,7 @@ const CartIcon = () => {
     <Link to="/cart">
       <div className="cartIconWrapper">
         <img className="icon" src={require("../assets/images/carro.svg")} />
-        <p className="cartUnits">{cart ? cart.length : 0}</p>
+        <p className="cartUnits">{cart ? cart.length : []}</p>
       </div>
     </Link>
   );

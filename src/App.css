@@ -118,3 +118,20 @@ section h5 {
   width: 20px;
   height: 20px;
 }
+
+/*cart list*/
+.cartList_list li {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+}
+.cartList_list li p:nth-child(1) {
+  width: 20%;
+}
+
+.cartList_list li p:nth-child(2) {
+  width: 60%;
+}
+.cartList_list li p:nth-child(3) {
+  width: 20%;
+}
