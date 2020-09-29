@@ -8,7 +8,7 @@ const Cart = () => {
   return (
     <div className="col-12">
       {
-        cart?.length == 0 ? <EmptyList /> : <CartList data={cart} />
+        cart && cart.length == 0 ? <EmptyList /> : <CartList data={cart} />
         //otra forma de escribirlo : cart && cart.length
       }
     </div>

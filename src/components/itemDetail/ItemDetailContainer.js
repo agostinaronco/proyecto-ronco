@@ -18,6 +18,10 @@ const ItemDetailContainer = () => {
     // opcion 2
     // const cartValue = [...cart,value]; dos formas de agregar un elemento a un array
     const newValue = { ...value, count: itemsCounter }; //estoy agregando todas las propiedades del obj value y definiendo la propiedad count con el valor itemcounter
+    if (!cart) {
+      setCart([newValue]);
+      return;
+    }
     const cartValue = [...cart, newValue];
     setCart(cartValue);
   };
