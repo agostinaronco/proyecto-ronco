@@ -6,17 +6,17 @@ const ItemDetail = ({ setValueCounter, item, valueCounter, setCartValue }) => {
   return (
     <div className="row itemDetail">
       <div className="col-12 col-md-6">
-        <img src={item.image} className="img-fluid" />
+        <img src={item.img} className="img-fluid" />
       </div>
       <div className="col-12 col-md-6">
         <p>{item.title}</p>
         <p>{item.description}</p>
-        <h4>${item.price}</h4>
+        <h4>${item.precio}</h4>
         <Counter
           setValueCounter={setValueCounter}
           initial={0}
           min={0}
-          max={5}
+          max={item.stock}
           valueCounter={valueCounter}
         />
         <Button

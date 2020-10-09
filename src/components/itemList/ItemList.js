@@ -17,7 +17,11 @@ const ItemList = () => {
         if (querySnapshot.size === 0) {
           console.log("No hay resultados");
         }
-        setProductos(querySnapshot.docs.map((doc) => doc.data()));
+        setProductos(
+          querySnapshot.docs.map((doc) => {
+            return { id: doc.id, ...doc.data() };
+          })
+        );
       })
       .catch((err) => {
         console.log(err);
