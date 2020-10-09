@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import ItemDetail from "./ItemDetail";
 import { useParams } from "react-router-dom";
 import { CartContext } from "./../../context/cartContext";
+import { getFirestore } from "./../../firebase";
 
 const ItemDetailContainer = () => {
   const [detalleProducto, setdetalleProducto] = useState([]);
@@ -30,16 +31,24 @@ const ItemDetailContainer = () => {
 
   useEffect(() => {
     setLoading(true);
-    setTimeout(() => {
-      fetch(`https://fakestoreapi.com/products/${id}`)
-        .then((response) => {
-          return response.json();
-        })
-        .then((res) => {
-          setdetalleProducto(res);
-          setLoading(false);
-        });
-    }, 1);
+    const db = getFirestore();
+    const itemCollection = db.collection("items");
+    const item = itemCollection.doc(id);
+    item
+      .get()
+      .then((doc) => {
+        if (!doc.exists) {
+          console.log("No hay resultados");
+          return;
+        }
+        setdetalleProducto({ id: doc.id, ...doc.data() });
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   }, [id]);
 
   if (loading) {

@@ -7,7 +7,6 @@ import Home from "./components/Home";
 import ItemList from "./components/itemList/ItemList";
 import ItemDetailContainer from "./components/itemDetail/ItemDetailContainer";
 import Cart from "./components/cart/Cart";
-
 import { CartProvider } from "./context/cartContext";
 
 function App() {

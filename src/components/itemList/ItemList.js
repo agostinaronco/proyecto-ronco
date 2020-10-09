@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Item from "./Item";
+import { getFirestore } from "./../../firebase";
 
 const ItemList = () => {
   const [productos, setProductos] = useState([]);
@@ -7,16 +8,23 @@ const ItemList = () => {
 
   useEffect(() => {
     setLoading(true);
-    setTimeout(() => {
-      fetch("https://fakestoreapi.com/products")
-        .then((response) => {
-          return response.json();
-        })
-        .then((res) => {
-          setProductos(res);
-          setLoading(false);
-        });
-    }, 1);
+    const db = getFirestore();
+    const itemCollection = db.collection("items");
+    console.log(itemCollection);
+    itemCollection
+      .get()
+      .then((querySnapshot) => {
+        if (querySnapshot.size === 0) {
+          console.log("No hay resultados");
+        }
+        setProductos(querySnapshot.docs.map((doc) => doc.data()));
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   }, []);
 
   if (loading) {
@@ -33,8 +41,8 @@ const ItemList = () => {
         <Item
           key={producto.id}
           nombre={producto.title}
-          valor={producto.price}
-          image={producto.image}
+          valor={producto.precio}
+          image={producto.img}
           productId={producto.id}
         />
       </div>

@@ -8,6 +8,7 @@ const Item = (props) => {
         <img src={image} className="img-fluid" />
         <p className="itemList--name"> {nombre}</p>
         <p>{valor}</p>
+        <p>{productId}</p>
       </div>
     </NavLink>
   );
