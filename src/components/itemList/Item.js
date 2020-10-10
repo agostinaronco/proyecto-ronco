@@ -5,7 +5,7 @@ const Item = (props) => {
   return (
     <NavLink to={`/detail/${productId}`}>
       <div className="itemList">
-        <img src={image} className="img-fluid" />
+        <img src={image} className="img-fluid" alt="imagen de producto" />
         <p className="itemList--name"> {nombre}</p>
         <p>{valor}</p>
       </div>

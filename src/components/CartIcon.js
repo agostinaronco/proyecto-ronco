@@ -8,7 +8,7 @@ const CartIcon = () => {
   return (
     <Link to="/cart">
       <div className="cartIconWrapper">
-        <img className="icon" src={require("../assets/images/carro.svg")} />
+        <img className="icon" alt="imagen cart" src={require("../assets/images/carro.svg")} />
         <p className="cartUnits">{cart ? cart.length : 0}</p>
       </div>
     </Link>

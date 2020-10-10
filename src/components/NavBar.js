@@ -3,7 +3,6 @@ import {
   Collapse,
   Navbar,
   NavbarToggler,
-  NavbarBrand,
   Nav,
   NavItem,
   NavbarText,
@@ -13,8 +12,7 @@ import {
   DropdownMenu,
 } from "reactstrap";
 import CartIcon from "./CartIcon";
-import { CartProvider } from "./../context/cartContext";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Navegacion = (props) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,7 +22,7 @@ const Navegacion = (props) => {
   return (
     <div>
       <Navbar expand="md">
-        <NavLink to="/main">E-commerce</NavLink>
+        <NavLink to="/">E-commerce</NavLink>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="ml-auto" navbar>

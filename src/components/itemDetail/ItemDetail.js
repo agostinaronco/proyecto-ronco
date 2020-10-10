@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Counter from "./../counter/Counter";
 import { Button } from "reactstrap";
 
@@ -6,7 +6,7 @@ const ItemDetail = ({ setValueCounter, item, valueCounter, setCartValue }) => {
   return (
     <div className="row itemDetail">
       <div className="col-12 col-md-6">
-        <img src={item.img} className="img-fluid" />
+        <img src={item.img} className="img-fluid" alt="imagen del producto"/>
       </div>
       <div className="col-12 col-md-6">
         <p>{item.title}</p>
@@ -26,7 +26,7 @@ const ItemDetail = ({ setValueCounter, item, valueCounter, setCartValue }) => {
           }}
           disabled={!valueCounter ? true : false}
         >
-          Comprar {valueCounter != 0 ? valueCounter : null}
+          Comprar {valueCounter !== 0 ? valueCounter : null}
         </Button>
       </div>
     </div>
