@@ -1,35 +1,65 @@
 import React, { useEffect, useState } from "react";
 import Item from "./Item";
 import { getFirestore } from "./../../firebase";
+import { useParams } from "react-router-dom";
 
 const ItemList = () => {
   const [productos, setProductos] = useState([]);
   const [loading, setLoading] = useState(false);
 
+  let { idCategory } = useParams();
+
   useEffect(() => {
     setLoading(true);
     const db = getFirestore();
     const itemCollection = db.collection("items");
-    console.log(itemCollection);
+
+
+   if(!idCategory){
     itemCollection
-      .get()
-      .then((querySnapshot) => {
-        if (querySnapshot.size === 0) {
-          console.log("No hay resultados");
-        }
-        setProductos(
-          querySnapshot.docs.map((doc) => {
-            return { id: doc.id, ...doc.data() };
-          })
-        );
-      })
-      .catch((err) => {
-        console.log(err);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
-  }, []);
+    .get()
+    .then((querySnapshot) => {
+      if (querySnapshot.size === 0) {
+        console.log("No hay resultados");
+      }
+      setProductos(
+        querySnapshot.docs.map((doc) => {
+          return { id: doc.id, ...doc.data() };
+        })
+      );
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+    .finally(() => {
+      setLoading(false);
+    });
+   } else {
+    const docRef = db.collection("categories").doc(idCategory);
+
+      itemCollection.where("category_id",
+        "==",
+        docRef)
+        .get()
+        .then((querySnapshot) => {
+          if (querySnapshot.size === 0) {
+            console.log("No hay resultados");
+          }
+          setProductos(
+            querySnapshot.docs.map((doc) => {
+              return { id: doc.id, ...doc.data() };
+            })
+          );
+        })
+        .catch((err) => {
+          console.log(err);
+        })
+        .finally(() => {
+          setLoading(false);
+        });
+    }
+   
+  }, [idCategory]);
 
   if (loading) {
     return (

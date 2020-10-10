@@ -7,6 +7,10 @@ import {
   Nav,
   NavItem,
   NavbarText,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownItem,
+  DropdownMenu,
 } from "reactstrap";
 import CartIcon from "./CartIcon";
 import { CartProvider } from "./../context/cartContext";
@@ -20,15 +24,27 @@ const Navegacion = (props) => {
   return (
     <div>
       <Navbar expand="md">
-        <NavLink to="/">E-commerce</NavLink>
+        <NavLink to="/main">E-commerce</NavLink>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="ml-auto" navbar>
             <NavItem>
-              <NavLink to="/">Productos</NavLink>
+              <NavLink to="/">Home</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink to="/components/">Contacto</NavLink>
+              <UncontrolledDropdown nav inNavbar>
+                <DropdownToggle nav caret>
+                  Categorias
+                </DropdownToggle>
+                <DropdownMenu right>
+                  <DropdownItem>
+                    <NavLink to={`/1pR12dVCCAuqJQaKlRH3`}>Mujeres</NavLink>
+                  </DropdownItem>
+                  <DropdownItem>Hombres</DropdownItem>
+                  <DropdownItem divider />
+                  <DropdownItem>Unisex</DropdownItem>
+                </DropdownMenu>
+              </UncontrolledDropdown>
             </NavItem>
           </Nav>
           <NavbarText>

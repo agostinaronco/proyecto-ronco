@@ -18,7 +18,7 @@ function App() {
             <Navegacion />
           </header>
           <Switch>
-            <Route exact path="/">
+          <Route exact path="/" >
               <section>
                 <div className="container">
                   <div className="row text-center">
@@ -27,7 +27,15 @@ function App() {
                 </div>
               </section>
               <section>
-                <h5>ITEM LIST</h5>
+                <div className="container">
+                  <div className="row">
+                    <ItemList />
+                  </div>
+                </div>
+              </section>
+            </Route>
+            <Route exact path="/:idCategory" >
+              <section>
                 <div className="container">
                   <div className="row">
                     <ItemList />
