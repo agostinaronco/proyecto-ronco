@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Collapse,
   Navbar,
@@ -11,16 +11,17 @@ import {
   DropdownItem,
   DropdownMenu,
 } from "reactstrap";
-import CartIcon from "./CartIcon";
+import CartIcon from "../CartIcon";
 import { NavLink } from "react-router-dom";
+import Categories from "./categories"
 
 const Navegacion = (props) => {
   const [isOpen, setIsOpen] = useState(false);
-
   const toggle = () => setIsOpen(!isOpen);
 
   return (
     <div>
+
       <Navbar expand="md">
         <NavLink to="/">E-commerce</NavLink>
         <NavbarToggler onClick={toggle} />
@@ -35,12 +36,7 @@ const Navegacion = (props) => {
                   Categorias
                 </DropdownToggle>
                 <DropdownMenu right>
-                  <DropdownItem>
-                    <NavLink to={`/1pR12dVCCAuqJQaKlRH3`}>Mujeres</NavLink>
-                  </DropdownItem>
-                  <DropdownItem>Hombres</DropdownItem>
-                  <DropdownItem divider />
-                  <DropdownItem>Unisex</DropdownItem>
+                <Categories/>
                 </DropdownMenu>
               </UncontrolledDropdown>
             </NavItem>
