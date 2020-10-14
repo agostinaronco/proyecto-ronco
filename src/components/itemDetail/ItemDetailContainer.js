@@ -25,6 +25,7 @@ const ItemDetailContainer = () => {
     }
     const cartValue = [...cart, newValue];
     setCart(cartValue);
+
   };
 
   let { id } = useParams();

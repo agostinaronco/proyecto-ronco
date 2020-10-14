@@ -4,7 +4,9 @@ import CartList from "../cart/CartList";
 import EmptyList from "../cart/EmptyList";
 
 const Cart = () => {
+ 
   const [cart] = useContext(CartContext);
+
   return (
     <div className="col-12">
       {

@@ -12,7 +12,7 @@ const CartList = ({ data }) => {
         <li>
           <p>{data.count}</p>
           <p>{data.title}</p>
-          <p>${data.price * data.count}</p>
+          <p>${data.precio * data.count}</p>
         </li>
       ))}
     </ul>

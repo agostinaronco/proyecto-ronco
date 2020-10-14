@@ -11,7 +11,7 @@ import {
   DropdownItem,
   DropdownMenu,
 } from "reactstrap";
-import CartIcon from "../CartIcon";
+import CartIcon from "./CartIcon";
 import { NavLink } from "react-router-dom";
 import Categories from "./categories"
 
@@ -21,7 +21,6 @@ const Navegacion = (props) => {
 
   return (
     <div>
-
       <Navbar expand="md">
         <NavLink to="/">E-commerce</NavLink>
         <NavbarToggler onClick={toggle} />

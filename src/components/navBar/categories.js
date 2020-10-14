@@ -1,16 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  Nav,
-  NavItem,
-  NavbarText,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownItem,
-  DropdownMenu,
-} from "reactstrap";
+import {DropdownItem} from "reactstrap";
 import { NavLink } from "react-router-dom";
 import { getFirestore } from "../../firebase";
 
@@ -45,7 +34,7 @@ const Categories = (props) => {
   if (categoria) {
     return categoria.map((cat) => (
     <DropdownItem>
-        <NavLink to={`${cat.id}`} key={cat.key}>{cat.nombre}</NavLink>
+        <NavLink to={`${cat.id}`} key={cat.id}>{cat.nombre}</NavLink>
     </DropdownItem>
     ));
   } else {

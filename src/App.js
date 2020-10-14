@@ -34,12 +34,11 @@ function App() {
                 </div>
               </section>
             </Route>
-            <Route exact path="/:idCategory" >
+            <Route path="/cart">
               <section>
+                <h5>CART</h5>
                 <div className="container">
-                  <div className="row">
-                    <ItemList />
-                  </div>
+                  <Cart />
                 </div>
               </section>
             </Route>
@@ -51,11 +50,12 @@ function App() {
                 </div>
               </section>
             </Route>
-            <Route path="/cart">
+            <Route path="/:idCategory" >
               <section>
-                <h5>CART</h5>
                 <div className="container">
-                  <Cart />
+                  <div className="row">
+                    <ItemList />
+                  </div>
                 </div>
               </section>
             </Route>
