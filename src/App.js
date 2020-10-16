@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import Navegacion from "./components/navBar/NavBar";
 import Home from "./components/Home";
 import ItemList from "./components/itemList/ItemList";
@@ -47,7 +47,7 @@ function App() {
                 </div>
               </section>
             </Route>
-            <Route path="/:idCategory" >
+            <Route path="/categories/:idCategory" >
               <section>
                 <div className="container">
                   <div className="row">

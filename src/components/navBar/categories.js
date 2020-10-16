@@ -34,7 +34,7 @@ const Categories = (props) => {
   if (categoria) {
     return categoria.map((cat) => (
     <DropdownItem>
-        <NavLink to={`${cat.id}`} key={cat.id}>{cat.nombre}</NavLink>
+        <NavLink to={`/categories/${cat.id}`} key={cat.id}>{cat.nombre}</NavLink>
     </DropdownItem>
     ));
   } else {
