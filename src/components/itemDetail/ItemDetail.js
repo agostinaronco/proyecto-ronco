@@ -9,7 +9,7 @@ const ItemDetail = ({ setValueCounter, item, valueCounter, setCartValue }) => {
         <img src={item.img} className="img-fluid" alt="imagen del producto"/>
       </div>
       <div className="col-12 col-md-6">
-        <p>{item.title}</p>
+        <p className="title">Modelo {item.title}</p>
         <p>{item.description}</p>
         <h4>${item.precio}</h4>
         <Counter

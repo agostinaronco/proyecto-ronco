@@ -1,7 +1,5 @@
 import React from "react";
-import "./App.css";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-
 import Navegacion from "./components/navBar/NavBar";
 import Home from "./components/Home";
 import ItemList from "./components/itemList/ItemList";
@@ -44,7 +42,6 @@ function App() {
             </Route>
             <Route path="/detail/:id">
               <section>
-                <h5>ITEM DETAIL</h5>
                 <div className="container">
                   <ItemDetailContainer />
                 </div>

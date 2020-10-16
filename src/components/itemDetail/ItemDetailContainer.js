@@ -24,8 +24,17 @@ const ItemDetailContainer = () => {
       return;
     }
     const cartValue = [...cart, newValue];
-    setCart(cartValue);
 
+    const sumDuplicatedItems = cartValue.reduce(function(accumulator, cur) {
+      let id = cur.id;
+      let found = accumulator.find( elem => {
+          return elem.id == id
+      });
+      if (found) found.count += cur.count;
+      else accumulator.push(cur);
+      return accumulator;
+    }, []);
+    setCart(sumDuplicatedItems);
   };
 
   let { id } = useParams();

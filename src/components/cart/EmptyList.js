@@ -1,11 +1,17 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const EmptyList = ({ data }) => {
   return (
     <div>
-      <h2>No tenemos productos para mostrar</h2>
-      <Link to="/">Buscar productos</Link>
+      <h4 style={{ textAlign: "center" }}>
+        No tenemos productos para mostrar{" "}
+      </h4>
+       <div className="text-center">
+      <NavLink className="button" to="/">
+        Buscar productos
+      </NavLink>
+      </div>
     </div>
   );
 };

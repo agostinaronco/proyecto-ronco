@@ -22,7 +22,7 @@ const Navegacion = (props) => {
   return (
     <div>
       <Navbar expand="md">
-        <NavLink to="/">E-commerce</NavLink>
+        <NavLink to="/" className="logo">E-commerce</NavLink>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="ml-auto" navbar>

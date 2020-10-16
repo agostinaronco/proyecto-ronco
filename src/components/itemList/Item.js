@@ -6,8 +6,8 @@ const Item = (props) => {
     <NavLink to={`/detail/${productId}`}>
       <div className="itemList">
         <img src={image} className="img-fluid" alt="imagen de producto" />
-        <p className="itemList--name"> {nombre}</p>
-        <p>{valor}</p>
+        <p className="itemList--name"><span>Modelo:</span>  {nombre}</p>
+        <p className="itemList--price">$ {valor}</p>
       </div>
     </NavLink>
   );
