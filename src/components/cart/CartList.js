@@ -1,6 +1,8 @@
-import React from "react";
+import React, {setState, useState} from "react";
 import { Form, Input, FormGroup } from "reactstrap";
 const CartList = ({ data, total, updateBuyer, value,onClick }) => {
+  const [repeatEmailValidation, setRepeatEmailValidation] = useState(false);
+
   return (
     <>
       <ul className="cartList_list">
@@ -39,11 +41,14 @@ const CartList = ({ data, total, updateBuyer, value,onClick }) => {
             <Input type="email" name="email" id="email" placeholder="Email"  value={value.email} onChange={(e) => updateBuyer("email", e.target.value)} />
           </FormGroup>
           <FormGroup className=" mb-3">
-            <Input type="email" name="repeat_email" id="email" placeholder="Repetir Email"  disabled={!value.email} onChange={(e) => value.email === e.target.value ? console.log("si") : console.log("noe")} />
+            <Input type="email" name="repeat_email" id="email" placeholder="Repetir Email"  
+            disabled={!value.email} 
+            onChange={(e) => value.email === e.target.value ? setRepeatEmailValidation(true) : setRepeatEmailValidation(false) }
+            className={!repeatEmailValidation ? "inputError" : "inputOk" } />
           </FormGroup>
         </Form>
           <div className="text-right">
-            <button type="button" className="button" onClick={onClick} disabled={!value.nombre || !value.email || !value.phone} >Finalizar pedido</button>
+            <button type="button" className="button" onClick={onClick} disabled={!value.nombre || !value.email || !value.phone || !repeatEmailValidation} >Finalizar pedido</button>
           </div>
       </div>
     </>
