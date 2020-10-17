@@ -33,10 +33,13 @@ const CartList = ({ data, total, updateBuyer, value,onClick }) => {
             <Input type="text" name="nombre" id="nombre" placeholder="Nombre y apellido" value={value.nombre} onChange={(e) => updateBuyer("nombre", e.target.value)} />
           </FormGroup>
           <FormGroup className=" mb-3">
+            <Input type="number" name="telefono" id="telefono" placeholder="Teléfono"  value={value.phone} onChange={(e) => updateBuyer("phone", e.target.value)} />
+          </FormGroup>
+          <FormGroup className=" mb-3">
             <Input type="email" name="email" id="email" placeholder="Email"  value={value.email} onChange={(e) => updateBuyer("email", e.target.value)} />
           </FormGroup>
           <FormGroup className=" mb-3">
-            <Input type="number" name="telefono" id="telefono" placeholder="Teléfono"  value={value.phone} onChange={(e) => updateBuyer("phone", e.target.value)} />
+            <Input type="email" name="repeat_email" id="email" placeholder="Repetir Email"  disabled={!value.email} onChange={(e) => value.email === e.target.value ? console.log("si") : console.log("noe")} />
           </FormGroup>
         </Form>
           <div className="text-right">
